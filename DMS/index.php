@@ -21,8 +21,8 @@
             position: absolute;
             top: 50px;
             left: 50px;
-            width: 100px; 
-            z-index: -1; 
+            width: 100px;
+            z-index: -1;
         }
 
         h1 {
@@ -77,7 +77,7 @@
 </head>
 <body>
     <img src="logo1.jpg" alt="Logo for Document Management System" class="logo">
-    <h1>Document Management System</h1>
+    <h1>Hytec Document Management System</h1>
     <div class="container">
         <div class="section">
             <h2>Upload Document</h2>
@@ -259,12 +259,22 @@
     
         // Function to display image in preview
         function displayImage(fileContent, fileName, preview) {
-            preview.innerHTML += <img src="${fileContent}" alt="${fileName}" style="max-width: 100%; max-height: 80vh;">;
+            const imgElement = document.createElement('img');
+            imgElement.src = fileContent;
+            imgElement.alt = fileName;
+            imgElement.style.maxWidth = '100%';
+            imgElement.style.maxHeight = '80vh';
+            preview.appendChild(imgElement);
         }
     
         // Function to display PDF in preview
         function displayPdf(fileContent, preview) {
-            preview.innerHTML += <embed src="${fileContent}" type="application/pdf" style="width: 100%; height: 80vh;">;
+            const embedElement = document.createElement('embed');
+            embedElement.src = fileContent;
+            embedElement.type = 'application/pdf';
+            embedElement.style.width = '100%';
+            embedElement.style.height = '80vh';
+            preview.appendChild(embedElement);
         }
     
         // Function to change department
