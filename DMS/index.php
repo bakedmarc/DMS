@@ -77,7 +77,7 @@
 </head>
 <body>
     <img src="logo1.jpg" alt="Logo for Document Management System" class="logo">
-    <h1>Hytec Document Management System</h1>
+    <h1> Document Management System</h1>
     <div class="container">
         <div class="section">
             <h2>Upload Document</h2>
