@@ -13,6 +13,8 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
+/* Sidebar styling */
 .sidebar {
     background-color: #ed1e1e;
     width: 240px;
@@ -24,21 +26,17 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo styling */
 .sidebar img {
     display: block;
     margin: 0 auto 20px; /* Center the logo and add some margin at the bottom */
 }
 
+/* Sidebar navigation styling */
 .sidebar ul {
     list-style-type: none;
     padding: 0;
 }
-
-.sidebar ul li {
-    padding: 10px 0;
-    border-bottom: 1px solid #020101;
-}
-
 
 .sidebar ul li {
     padding: 10px 0;
@@ -52,19 +50,16 @@ body {
 .sidebar ul li a {
     display: block;
     text-decoration: none;
-    color: #333;
+    color: #ffffff; /* Adjusted link color */
     padding: 8px 16px;
     transition: background-color 0.3s;
 }
 
 .sidebar ul li a:hover {
-    background-color: #ddd;
+    background-color: #020101; /* Darker background color on hover */
 }
 
-.sidebar ul li a i {
-    margin-right: 10px;
-}
-
+/* Content area */
 .content {
     margin-left: 240px;
     padding: 20px;
@@ -75,10 +70,11 @@ body {
     display: block;
 }
 
-/* Style for the "Upload Files" page */
+/* Upload Files page styling */
 #upload h2 {
     margin-bottom: 20px;
     font-size: 24px;
+    color: #020101; /* Adjusted heading color */
 }
 
 #departmentSelect {
@@ -104,34 +100,69 @@ body {
 #upload button:hover {
     background-color: #45a049;
 }
+/* Adjusted styling for document list and preview area */
+.section {
+    margin-top: 30px;
+}
 
 #documentList {
-    margin-bottom: 20px;
-}
-
-#historyLog {
     width: 100%;
-    max-height: 40vh; /* Half of the original height */
     border-collapse: collapse;
-    overflow: auto;
 }
 
-#historyLog th, #historyLog td {
+#documentList th, #documentList td {
     padding: 10px;
-    text-align: left;
     border-bottom: 1px solid #ddd;
+    text-align: left;
 }
 
-#historyLog th {
+#documentList th {
     background-color: #f2f2f2;
 }
 
-#preview {
-    width: 100%;
-    height: 40vh; /* Half of the original height */
-    overflow: auto;
+#documentList td:last-child {
+    text-align: center;
 }
 
+
+
+/* History Log table styling */
+#historyLog {
+    width: 50%; /* Occupy half of the screen width */
+    max-height: 60vh; /* Adjusted max-height for better visibility */
+    border-collapse: collapse;
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    border-right: 2px solid #ddd; /* Slightly thicker border for separation */
+    float: left;
+    table-layout: fixed; /* Ensure fixed table layout */
+}
+
+#historyLog th,
+#historyLog td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent wrapping of file names */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis for overflowed content */
+}
+#historyLog th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Preview area styling */
+#preview {
+    width: 50%; /* Occupy half of the screen width */
+    height: 60vh; /* Adjusted height for better visibility */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    border-left: 2px solid #ddd; /* Slightly thicker border for separation */
+    float: right;
+}
+
+/* Modal styling */
 .modal {
     display: none;
     position: fixed;
@@ -141,30 +172,34 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for better focus */
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
+    border-radius: 5px; /* Added border-radius for smoother corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow for depth */
+    width: 60%;
+    max-width: 500px;
 }
 
 .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: #333; /* Adjusted hover color for better contrast */
 }
+
 
 </style>
 </head>
@@ -215,7 +250,11 @@ body {
         </thead>
         <tbody id="historyLogBody"></tbody>
     </table>
-    <div id="preview"></div>
+    <div class="section">
+        <h2>Preview Document</h2>
+        <!-- Container for displaying the document -->
+        <div id="preview"></div>
+    </div>
 </section>
 
 <section id="private-folder" class="content">
