@@ -484,10 +484,50 @@ document.getElementById('addDepartmentForm').addEventListener('submit', function
     option.value = departmentName.toLowerCase().replace(/\s+/g, '-'); // Convert to lowercase and replace spaces with dashes
     option.textContent = departmentName;
     departmentSelect.appendChild(option);
+    
 
     // Close the modal
     closeModal();
 });
+
+function addToHistoryLog(documentInfo) {
+    const historyLogBody = document.getElementById('historyLogBody');
+
+    const newRow = historyLogBody.insertRow();
+
+    const cell1 = newRow.insertCell(0);
+    cell1.textContent = documentInfo.fileName;
+
+    const cell2 = newRow.insertCell(1);
+    cell2.textContent = documentInfo.uploadTime;
+
+    const cell3 = newRow.insertCell(2);
+    // Convert file size to human-readable format (KB)
+    const fileSizeInKB = (documentInfo.fileSize / 1024).toFixed(2); // Convert to KB
+    cell3.textContent = fileSizeInKB + ' KB'; // Display in KB
+
+    // Add download link
+    const cell4 = newRow.insertCell(3);
+    const downloadLink = document.createElement('a');
+    downloadLink.textContent = 'Download';
+    downloadLink.href = documentInfo.fileContent; // Set the href to the file content (assuming it's a URL)
+    downloadLink.download = documentInfo.fileName; // Set the download attribute to the file name
+    cell4.appendChild(downloadLink);
+
+    // Add delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', function(event) {
+        event.stopPropagation(); // Stop event propagation
+        deleteDocument(newRow, documentInfo);
+    });
+    cell4.appendChild(deleteButton);
+
+    // Add click event listener to preview the file
+    newRow.addEventListener('click', function() {
+        previewDocument(documentInfo);
+    });
+}
 
 </script>
 
