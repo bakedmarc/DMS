@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #ed1e1e;
+    width: 240px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styling */
+.sidebar img {
+    display: block;
+    margin: 0 auto 20px; /* Center the logo and add some margin at the bottom */
+}
+
+/* Sidebar navigation styling */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #020101;
+}
+
+.sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff; /* Adjusted link color */
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #020101; /* Darker background color on hover */
+}
+
+/* Content area */
+.content {
+    margin-left: 240px;
+    padding: 20px;
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+/* Upload Files page styling */
+#upload h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #020101; /* Adjusted heading color */
+}
+
+#departmentSelect {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#fileInput {
+    margin-bottom: 20px;
+}
+
+#upload button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#upload button:hover {
+    background-color: #45a049;
+}
+/* Adjusted styling for document list and preview area */
+.section {
+    margin-top: 30px;
+}
+
+#documentList {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#documentList th, #documentList td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+#documentList th {
+    background-color: #f2f2f2;
+}
+
+#documentList td:last-child {
+    text-align: center;
+}
+
+
+
+/* History Log table styling */
+#historyLog {
+    width: 50%; /* Occupy half of the screen width */
+    max-height: 60vh; /* Adjusted max-height for better visibility */
+    border-collapse: collapse;
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    border-right: 2px solid #ddd; /* Slightly thicker border for separation */
+    float: left;
+    table-layout: fixed; /* Ensure fixed table layout */
+}
+
+#historyLog th,
+#historyLog td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent wrapping of file names */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis for overflowed content */
+}
+#historyLog th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Preview area styling */
+#preview {
+    width: 50%; /* Occupy half of the screen width */
+    height: 60vh; /* Adjusted height for better visibility */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    border-left: 2px solid #ddd; /* Slightly thicker border for separation */
+    float: right;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for better focus */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px; /* Added border-radius for smoother corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow for depth */
+    width: 60%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333; /* Adjusted hover color for better contrast */
+}
